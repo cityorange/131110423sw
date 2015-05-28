@@ -25,7 +25,7 @@ public class LoginService {
 	}
 	
 
-	public static boolean checkUser(String id,String password)
+	/*public static boolean checkUser(String id,String password)
 	{
 		 if(!"".equals(id.trim())&&!"".equals(password.trim()))
 				 {
@@ -34,7 +34,7 @@ public class LoginService {
 		 else{
 			 return false;
 	       }
-	}
+	}*/
 
 	//负责将数据库中的用户id读进来
 	public static void readUser(JComboBox comboBox)

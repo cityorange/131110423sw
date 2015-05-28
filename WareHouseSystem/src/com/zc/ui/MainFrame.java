@@ -18,6 +18,8 @@ import javax.swing.table.DefaultTableModel;
 import com.zc.control.ProductControl;
 import com.zc.model.Product;
 import com.zc.service.ProductService;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
 
 
 
@@ -29,6 +31,8 @@ public class MainFrame extends JFrame {
 
 	private JPanel contentPane;
 	private JTable table;
+	private JTextField textField;
+	private JTextField textField_1;
 
 	/**
 	 * Launch the application.
@@ -52,7 +56,7 @@ public class MainFrame extends JFrame {
 	public MainFrame() {
 		super("货品管理界面'");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 450, 420);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -173,6 +177,98 @@ public class MainFrame extends JFrame {
 		});
 		btnNewButton.setBounds(279, 235, 93, 23);
 		contentPane.add(btnNewButton);
+		
+		JLabel label = new JLabel("\u6309\u4EA7\u54C1\u7F16\u53F7\u67E5\u627E");
+		label.setBounds(73, 291, 93, 15);
+		contentPane.add(label);
+		
+		textField = new JTextField();
+		textField.setBounds(176, 287, 108, 23);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		JLabel lblNewLabel = new JLabel("\u6309\u4EA7\u54C1\u540D\u79F0\u67E5\u627E");
+		lblNewLabel.setBounds(73, 324, 93, 15);
+		contentPane.add(lblNewLabel);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(176, 320, 108, 23);
+		contentPane.add(textField_1);
+		textField_1.setColumns(10);
+		
+		JButton btnNewButton_1 = new JButton("\u4E00\u952E\u67E5\u627E");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+				Product temp=null;
+				String id=textField.getText();
+				String pname=textField_1.getText();
+				
+				/*boolean flag=ProductControl.getControl().findByID(id);
+				boolean flag1=ProductControl.getControl().findByPName(pname);
+				 if(!flag){
+					 
+					 JOptionPane.showMessageDialog(null,"没有查到相关的商品！请确认产品编号是否正确！");
+				 }
+				 else if(!flag1){
+					 
+					 JOptionPane.showMessageDialog(null,"没有查到相关的商品！请确认产品名称是否正确！");
+				 }
+				 else */
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				if(!"".equals(textField.getText())&&"".equals(textField_1.getText()))
+				   
+					
+					
+				  
+				{	
+					temp=ProductControl.getControl().findById(id);
+						MainFrame.this.setVisible(false);
+						FindFrame f=new FindFrame(temp);
+						f.setVisible(true);
+						
+				    }
+				 else if("".equals(textField.getText())&&!"".equals(textField_1.getText()))
+				 {
+						
+						
+					    List<?> t=ProductControl.getControl().findByPname(pname);
+					    temp=(Product)t.get(0);
+					    MainFrame.this.setVisible(false);
+						FindFrame f=new FindFrame(temp);
+						f.setVisible(true);
+						
+						
+					}
+					
+				 else if("".equals(textField.getText())&&"".equals(textField_1.getText()))
+					{
+						JOptionPane.showMessageDialog(null,"请输入内容！");
+						
+						
+					}
+					
+					
+					else if(!"".equals(textField.getText())&&!"".equals(textField_1.getText()))
+					{
+						JOptionPane.showMessageDialog(null,"只能按照其中的一项进行输入，请重新输入！");
+					
+					}
+					
+				
+			}
+		});
+		btnNewButton_1.setBounds(320, 287, 93, 48);
+		contentPane.add(btnNewButton_1);
 		
 	}
 }

@@ -64,6 +64,7 @@ public class LoginControl {
 		}
 		
 		
+		
 /*
 		public boolean merge(User user) {
 			try {

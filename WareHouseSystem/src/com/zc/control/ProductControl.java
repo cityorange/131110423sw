@@ -61,15 +61,36 @@ public class ProductControl {
 	
 	
 
-	public Boolean findById(String id) {
+	public Product findById(String id) {
 		try {
+			return productDAO.findById(id);
+			
+		} catch (Exception e) {
+			return null;
+		}
+		
+		
+
+	}
+	
+	public Boolean findByID(String id) {
+		try {
+			
 			productDAO.findById(id);
+			session.beginTransaction().commit();
+			session.flush();
 			return true;
 		} catch (Exception e) {
 			return false;
 		}
-
+		
+		
+		
 	}
+	
+	
+	
+	
 	
 	public boolean delete(Product product){
 		try{
@@ -85,6 +106,36 @@ public class ProductControl {
 	}
 	
 	
+	
+	
+	public List findByPname(String pname)
+	{
+		try
+			{
+			
+					return productDAO.findByProductName(pname);
+					
+		}
+		catch(Exception e)
+		{
+			return null;
+		}
+	}
+	
+	
+	public Boolean findByPName(String pname) {
+		try {
+			productDAO.findByProductName(pname);
+			session.beginTransaction().commit();
+			session.flush();
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+		
+		
+
+	}
 	
 	public boolean update(Product product)
 	{

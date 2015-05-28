@@ -83,10 +83,10 @@ public class LoginFrame extends JFrame {
 			public void actionPerformed(ActionEvent e){
 				String id=(String)comboBox.getSelectedItem();
 				String password=new String(passwordField.getPassword());
-				boolean flag =LoginService.checkUser(id,password);
-				if(!flag){
+				/*boolean flag =LoginService.checkUser(id,password);*/
+				/*if(!flag){
 					JOptionPane.showMessageDialog(null, "请输入用户名和密码！");
-				}
+				}*/
 				
 				boolean flag2=LoginService.isUser(id, password);
 				if(!flag2){

@@ -18,7 +18,7 @@ public class ProductService{
 		List<?> product1=ProductControl.getControl().getProductAll();
 		for(int i=0;i<product1.size();i++)
 		{
-			temp=new Product();
+			temp=new Product();	
 			temp=(Product)product1.get(i);
 			table.setValueAt(temp.getPid(), i, 0);
 			table.setValueAt(temp.getProductName(),i,1);
@@ -28,7 +28,21 @@ public class ProductService{
 			
 			
 			
+		
+		
 		}
+	
+	public static void readFindQuery(JTable table,Product temp)
+	{
+		table.setValueAt(temp.getPid(), 0, 0);
+		table.setValueAt(temp.getProductName(),0,1);
+		table.setValueAt(temp.getPrice(),0,2);
+		table.setValueAt(temp.getNum(),0,3);
+		table.setValueAt(temp.getTotalPrice(),0,4);
+		}
+		
+		
+	
 		
 		public static boolean deleteProduct(int i)
 		{
